@@ -64,6 +64,13 @@ non_eng_voices: Final[tuple] = (
     "kr_004",  # Korean - Male 2
 )
 
+br_voices: Final[tuple] = (
+    "br_001",  # Portuguese BR - Female 1
+    "br_003",  # Portuguese BR - Female 2
+    "br_004",  # Portuguese BR - Female 3
+    "br_005",  # Portuguese BR - Male
+)
+
 vocals: Final[tuple] = (
     "en_female_f08_salut_damour",  # Alto
     "en_male_m03_lobby",  # Tenor
@@ -146,6 +153,7 @@ class TikTok:
 
     @staticmethod
     def random_voice() -> str:
+        voices = br_voices if settings.config["reddit"]["tts"]["post_lang"].lower() == "pt" else eng_voices
         return random.choice(eng_voices)
 
 
